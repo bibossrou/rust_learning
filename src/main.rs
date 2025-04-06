@@ -16,7 +16,7 @@ fn prenom() {
 
 }
 
-
+// Fonction age mineur ou majeur
 
 fn main() {
     let mut input = String::new();
