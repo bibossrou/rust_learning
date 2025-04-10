@@ -1,4 +1,5 @@
 use std::io;
+use rand :: Rng;
 
 // Fonction demande d'un prénom
 
@@ -37,10 +38,10 @@ fn age() {
 
     
 }
-    */
+ 
 
 
-fn main() {
+fn lettre() {
     let mut input = String::new();
 
     println!("Tape une lettre");
@@ -59,4 +60,34 @@ fn main() {
     }
 
 
+}   */
+
+
+fn main() {
+    let secret = rand::thread_rng().gen_range(1..=100);
+    let mut compteur = 0;
+    loop {
+        let mut input = String::new();
+        
+        println!("Tape un chiffre");
+        io::stdin()
+            .read_line(&mut input)
+            .expect("Erreur lors de la lecture");
+
+        let guess: u32 = input.trim().parse().expect("pas un nombre");
+        compteur += 1;
+        if guess > secret {
+            println!("Trop grand\n");
+        } else if guess < secret {
+            println!("Trop petit\n");
+        } else {
+            println!("C'est le bon !");
+            break;
+
+        }
+        
+        
+        
+    }
+    println!("Tu as réussi en : {} coups", compteur)
 }
