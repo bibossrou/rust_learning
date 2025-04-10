@@ -2,7 +2,7 @@ use std::io;
 
 // Fonction demande d'un prénom
 
-
+/* 
 fn prenom() {
     let mut entree = String::new();
 
@@ -18,13 +18,14 @@ fn prenom() {
 
 // Fonction age mineur ou majeur
 
-fn main() {
+fn age() {
     let mut input = String::new();
 
     println!("tape ton age");
 
     io::stdin()
-        .read_line(&mut input);
+        .read_line(&mut input)
+        .expect("Erreur lors de la lecture");
 
     let age : u32 = input.trim().parse().expect("Pas un nombre");
     
@@ -35,4 +36,27 @@ fn main() {
     }
 
     
+}
+    */
+
+
+fn main() {
+    let mut input = String::new();
+
+    println!("Tape une lettre");
+
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Erreur lors de la lecture");
+
+    let lettre = input.to_lowercase().trim().chars().next();
+    
+    match lettre {
+        Some('a') | Some('e') | Some('i') | Some('o') | Some('u') | Some('y') => println!("Voyelle"),
+        Some('b' ..='z') => println!("Consonne"),
+        _ => println!("Ce n'est pas une lettre"),
+    
+    }
+
+
 }
